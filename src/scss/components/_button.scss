@@ -1,0 +1,39 @@
+.button {
+  text-decoration: none;
+  color: $color-text-primary;
+  font-size: 1.6rem;
+  padding: 0.9rem 0.8rem;
+  background-color: #cfcfcf;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  appearance: none;
+  border: none;
+  line-height: normal;
+  outline: none;
+  // border-radius: 0.3rem;
+  transition: all 0.2s ease-in-out;
+
+  span.icon {
+    margin: 0 0.5rem;
+    @include respond(tab-por) {
+      margin: 0.5rem;
+    }
+  }
+
+  span.crop {
+    @include respond(tab-por) {
+      display: none;
+    }
+  }
+
+  &:hover {
+    text-decoration: underline;
+    box-shadow: 0 0 1rem rgba(black, 0.4);
+    // transform: scale(1.05);
+  }
+
+  &--yellow {
+    background-color: $color-accent !important;
+  }
+}

@@ -1,0 +1,32 @@
+.card {
+  background-color: $color-secondary;
+  box-shadow: 0 0 6px -2px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+  border-radius: 0.3em;
+
+  &__header {
+    background-color: $color-primary;
+    padding: 3rem;
+    font-size: $default-font-size;
+    color: $color-white;
+  }
+
+  &__body {
+    padding: 3rem;
+    font-size: $default-font-size;
+
+    a {
+      color: $color-text-primary;
+    }
+
+    button {
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}

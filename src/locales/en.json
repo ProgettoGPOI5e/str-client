@@ -1,0 +1,44 @@
+{
+    "menu": {
+        "timetables": "Timetables",
+        "tariffs": "Tariffs",
+        "contacts": "Contacts",
+        "legalterms": "Legal terms",
+        "dashboard": "Dashboard",
+        "wallet": "Wallet",
+        "admin": "Admin"
+    },
+    "header": {
+        "flag": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg",
+        "lang": "English"
+    },
+    "footer": {
+        "backoffice": "Back office",
+        "links": "Useful links",
+        "contacts": "Contacts",
+        "timetables": "Timetables",
+        "rome": "Municipality of Rome"
+    },
+    "slider": {
+        "text": "STR is the main public transport operator in Rome and a benchmark public mobility company in Europe and the world.",
+        "action": "Buy a ticket"
+    },
+    "contacts": {
+        "info": {
+            "title": "Headquarter"
+        },
+        "contacts": {
+            "title": "Contacts",
+            "phone": "Phone",
+            "fax": "Fax",
+            "email": "Email",
+            "pec": "PEC"
+        }
+    },
+    "login": {
+        "signup": {
+            "text": "Don't have an account?",
+            "action": "Sign up"
+        }
+    }
+}

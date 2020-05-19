@@ -1,0 +1,44 @@
+{
+  "menu": {
+    "timetables": "Orari",
+    "tariffs": "Tariffe",
+    "contacts": "Contatti",
+    "legalterms": "Note legali",
+    "dashboard": "Dashboard",
+    "wallet": "Portafoglio",
+    "admin": "Admin"
+  },
+  "header": {
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+    "lang": "Italiano"
+  },
+  "footer": {
+    "backoffice": "Area riservata",
+    "links": "Link utili",
+    "contacts": "Contatti",
+    "timetables": "Orari",
+    "rome": "Comune di Roma"
+  },
+  "slider": {
+    "text": "STR è il principale operatore di trasporto pubblico a Roma e una società di riferimento per la mobilità pubblica in Europa e nel mondo.",
+    "action": "Acquista un biglietto"
+  },
+  "contacts": {
+    "info": {
+      "title": "Dove siamo"
+    },
+    "contacts": {
+      "title": "Contatti",
+      "phone": "Telefono",
+      "fax": "Fax",
+      "email": "Email",
+      "pec": "PEC"
+    }
+  },
+  "login": {
+    "signup": {
+      "text": "Non sei ancora registrato?",
+      "action": "Registrati"
+    }
+  }
+}
