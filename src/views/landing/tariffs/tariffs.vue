@@ -15,7 +15,12 @@
         <div class="info">
           <p class="title">{{ ticket.name }}</p>
           <p class="body">{{ ticket.description }}</p>
-          <p class="price">{{ ticket.price }}</p>
+          <p class="price">
+              {{ new Intl.NumberFormat('it-IT', {
+              style: 'currency',
+              currency: ticket.price.currency
+              }).format(ticket.price.value) }}
+          </p>
         </div>
       </div>
     </div>
