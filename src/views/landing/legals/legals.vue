@@ -18,6 +18,7 @@ export default {
 <style scoped lang="scss">
 .main {
   padding: 4rem;
+  min-height: 90rem;
 
   @include respond(phone) {
     padding: 2rem;

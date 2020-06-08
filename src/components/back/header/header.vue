@@ -153,6 +153,10 @@ export default {
 
         &__name {
           display: inline-block;
+
+          @include respond(tab-port) {
+            display: none;
+          }
         }
 
         // &__menu {

@@ -13,6 +13,12 @@
   transform: translate(-50%, -50%);
 }
 
+@mixin alertColor($color) {
+  background-color: lighten($color, 27%)!important;
+  // border: 0.5px solid lighten($color, 10%)!important;
+  color: darken($color, 27%)!important;
+}
+
 // MEDIA QUERY MANAGER
 /*
 0 - 600px:      Phone

@@ -25,6 +25,11 @@ export default new Vuex.Store({
     authUser (state, { userId, token }) {
       state.userId = userId
       state.token = token
+    },
+    clearUser (state) {
+      state.userId = null
+      state.token = null
+      state.user = null
     }
   },
   actions: {
@@ -41,8 +46,7 @@ export default new Vuex.Store({
       })
       localStorage.setItem('token', token)
       localStorage.setItem('userId', userId)
-      console.log('Login effettuato.')
-      router.push('/back')
+      router.push('/customer')
     },
     async fetchUser ({ commit, state }) {
       const response = await v1.get('/users/' + state.userId)
@@ -61,25 +65,25 @@ export default new Vuex.Store({
       })
     },
     logout ({ commit }) {
-      localStorage.setItem('token', null)
-      localStorage.setItem('userId', null)
-      commit('authUser', {
-        userId: null,
-        token: null
-      })
-      router.push('/')
+      localStorage.removeItem('token')
+      localStorage.removeItem('userId')
+      commit('clearUser')
+      router.push('/login')
     }
   },
   getters: {
     getUser ({ user }) {
       return user
     },
-    isAuthenticated () {
-      const token = localStorage.getItem('token')
-      const userId = localStorage.getItem('userId')
+    isAuthenticated ({ token, userId }) {
       if (!token || !userId) {
         return false
       }
+
+      return true
+    },
+    getToken ({ token }) {
+      return token
     },
     getUserId ({ userId }) {
       return userId

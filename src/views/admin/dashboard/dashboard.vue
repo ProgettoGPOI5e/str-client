@@ -10,11 +10,11 @@
               </div>
           </article>
       </section>
-      <section class="section-chart">
-
-      </section>
       <section class="section-form">
-        <app-add-news></app-add-news>
+        <app-add-news @newNews="getNews" @alert="alert = $event"></app-add-news>
+        <transition name="fade">
+          <app-alert :alert="alert" v-if="alert.message" @alert="alert = $event"></app-alert>
+        </transition>
       </section>
   </main>
 </template>
@@ -23,12 +23,17 @@
 
 import v1 from '@/utils/v1'
 
+import Alert from '@/components/alert/alert'
 import addNews from '@/components/back/addNews/addNews'
 
 export default {
   data () {
     return {
-      news: []
+      news: [],
+      alert: {
+        message: '',
+        color: ''
+      }
     }
   },
   async mounted () {
@@ -40,12 +45,14 @@ export default {
         const response = await v1.get('/news')
         this.news = response.data
       } catch (e) {
-        console.log(e.response.data.message)
+        console.log(e)
+        this.news = []
       }
     }
   },
   components: {
-    appAddNews: addNews
+    appAddNews: addNews,
+    appAlert: Alert
   }
 }
 </script>
@@ -55,22 +62,24 @@ export default {
     padding: 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "news chart" "news form";
+    grid-template-rows: 1fr;
+    grid-template-areas: "news form";
     grid-gap: 2rem;
 
     .section-news {
       grid-area: news;
-      background-color: green;
-    }
 
-    .section-chart {
-      grid-area: chart;
-      background-color: blue;
+      .card {
+        margin-bottom: 2rem;
+      }
     }
 
     .section-form {
       grid-area: form;
+
+      .alert {
+        margin-top: 2rem;
+      }
     }
 }
 </style>

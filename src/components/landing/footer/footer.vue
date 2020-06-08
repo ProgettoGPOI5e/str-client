@@ -2,8 +2,8 @@
 <footer class="footer">
   <section class="top">
     <div class="legal">
-      <p class="copyright">Copyright © {{ new Date().getFullYear() }} <a href="#">Società di Trasporti</a></p>
-      <p class="powered">Powered by <a href="#">Società di Trasporti</a></p>
+      <p class="copyright">Copyright © {{ new Date().getFullYear() }} <a href="/">Società di Trasporti</a></p>
+      <p class="powered">Powered by <a href="/">Società di Trasporti</a></p>
     </div>
     <div class="social">
       <ul>
@@ -13,12 +13,12 @@
           </a>
         </li>
         <li>
-          <a href="https://github.com/ITISEnricoFermi">
+          <a href="#">
             <i class="fab fa-instagram"></i>
           </a>
         </li>
         <li>
-          <a href="https://t.me/itisfermi">
+          <a href="#">
             <i class="fab fa-twitter"></i>
           </a>
         </li>
@@ -82,7 +82,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/">
               <span class="icon">
                 <i class="fas fa-envelope"></i>
               </span>
@@ -92,7 +92,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/">
               <span class="icon">
                 <i class="fab fa-telegram"></i>
               </span>

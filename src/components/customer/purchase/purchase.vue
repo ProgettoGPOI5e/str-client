@@ -3,18 +3,18 @@
         class="card">
         <div class="card__body">
           <img
-            :src="img"
+            :src="purchase.ticket.img"
             class="picture"
             alt="Biglietto"
             loading="lazy"
           />
           <div class="info">
-            <p class="title">{{ ticket.title.name }}</p>
-            <p class="body">{{ ticket.title.description }}</p>
-            <a
-              href="#"
+            <p class="title">{{ purchase.ticket.name }}</p>
+            <p class="body">{{ purchase.ticket.description }}</p>
+            <button
               class="button button--yellow"
-            >Convalida titolo</a>
+              @click="$emit('validate', purchase._id)"
+            >Convalida titolo</button>
           </div>
         </div>
       </div>
@@ -22,12 +22,7 @@
 
 <script>
 export default {
-  props: ['ticket'],
-  data () {
-    return {
-      img: '/metrebus.png'
-    }
-  }
+  props: ['purchase']
 }
 </script>
 
@@ -38,7 +33,8 @@ export default {
         display: grid;
         grid-template-columns: 20rem 1fr;
         grid-template-rows: 1fr;
-        grid-gap: 2rem;
+        grid-gap: 1rem;
+        padding: 0!important;
 
         .picture {
           display: block;
@@ -50,6 +46,7 @@ export default {
           align-items: left;
           flex-direction: column;
           justify-content: center;
+          padding: 1rem;
 
           .title {
             font-size: 2rem;

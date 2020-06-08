@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import store from '@/store'
+import store from '@/store'
 
 import Landing from '@/views/landing/landing'
 import Home from '@/views/landing/home/home'
@@ -20,17 +20,26 @@ import PageNotFound from '@/views/PageNotFound/PageNotFound'
 
 Vue.use(VueRouter)
 
-// const auth = (to, from, next) => {
+const auth = async (to, from, next) => {
+  await store.dispatch('authenticate')
+  if (!store.getters.isAuthenticated) {
+    return next('/login')
+  }
+  next()
+}
 
-//   if (!store.getters.isAuthenticated) {
-//     return next('/login')
-//   }
-//   next()
-// }
+const publicAuth = async (to, from, next) => {
+  await store.dispatch('authenticate')
+  if (store.getters.isAuthenticated) {
+    return next('/customer')
+  }
+  next()
+}
 
 const routes = [{
   path: '/',
   component: Landing,
+  beforeEnter: publicAuth,
   children: [{
     path: '/',
     name: 'home',
@@ -61,16 +70,9 @@ const routes = [{
     component: Login
   }]
 }, {
-  path: '/admin',
-  component: Back,
-  children: [{
-    path: '/',
-    name: 'adminDashboard',
-    component: AdminDashboard
-  }]
-}, {
   path: '/customer',
   component: Back,
+  beforeEnter: auth,
   children: [{
     path: '/customer',
     name: 'customerDashboard',
@@ -79,6 +81,10 @@ const routes = [{
     path: '/customer/wallet',
     name: 'customerWallet',
     component: CustomerWallet
+  }, {
+    path: '/admin',
+    name: 'adminDashboard',
+    component: AdminDashboard
   }]
 }, {
   path: '*',

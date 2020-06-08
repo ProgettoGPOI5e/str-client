@@ -40,17 +40,17 @@ export default {
       lines: [{
         name: 'Linea A',
         info: 'Battistini > Anagnina',
-        timetable: '5:30 - 23:00',
+        timetable: '04:05 - 23:30',
         img: 'a.png'
       }, {
         name: 'Linea B',
         info: 'Laurentina > Rebibbia/Jonio',
-        timetable: '5:30 - 23:00',
+        timetable: '04:05 - 23:30',
         img: 'b.png'
       }, {
         name: 'Linea C',
         info: 'Pantano > San Giovanni',
-        timetable: '5:30 - 23:00',
+        timetable: '4:05 - 23:30',
         img: 'c.png'
       }],
       selected: {
@@ -65,6 +65,7 @@ export default {
 <style scoped lang="scss">
 .main {
   display: grid;
+  min-height: 90rem;
   grid-template-columns: 30rem auto;
 
   @include respond(tab-land) {

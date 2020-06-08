@@ -7,7 +7,7 @@
     >
       <div class="card__body">
         <img
-          :src="img"
+          :src="ticket.img"
           class="picture"
           alt="Biglietto"
           loading="lazy"
@@ -29,7 +29,6 @@ import v1 from '@/utils/v1'
 export default {
   data () {
     return {
-      img: '/metrebus.png',
       tickets: []
     }
   },

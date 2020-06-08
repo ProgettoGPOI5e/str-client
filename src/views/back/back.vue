@@ -11,7 +11,6 @@ import Header from '@/components/back/header/header'
 
 export default {
   created () {
-    this.$store.dispatch('authenticate')
     this.$store.dispatch('fetchUser')
   },
   components: {

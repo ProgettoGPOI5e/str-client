@@ -54,13 +54,22 @@ export default {
   methods: {
     async addNews () {
       try {
-        await v1.post('/news', {
+        const response = await v1.post('/news', {
           title: this.title,
           body: this.body
         })
-        console.log('Notizia aggiunta.')
+        this.title = ''
+        this.body = ''
+        this.$emit('newNews', response.data)
+        this.$emit('alert', {
+          message: 'La notizia pubblicata.',
+          color: 'alert--green'
+        })
       } catch (e) {
-        console.log(e.response.data.message)
+        this.$emit('alert', {
+          message: e.response.data.message,
+          color: 'alert--red'
+        })
       }
     }
   }
