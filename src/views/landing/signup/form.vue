@@ -170,7 +170,7 @@
                 type="checkbox"
                 name="legal-terms"
                 id="legal-terms"
-                v-model="legalTerms"
+                v-model="legals"
               >
               <span class="checkbox__check"></span>
               <span class="checkbox__label">
@@ -217,6 +217,9 @@
         </div>
       </div>
     </div>
+    <transition name="fade">
+      <app-alert :alert="alert" v-if="alert.message" @alert="alert = $event"></app-alert>
+    </transition>
 <!--
     <div class="card">
       <div class="card__header">
@@ -265,6 +268,7 @@
 </template>
 
 <script>
+import Alert from '@/components/alert/alert'
 
 import v1 from '@/utils/v1'
 
@@ -286,14 +290,18 @@ export default {
       cardNumber: '',
       cardDate: '',
       cardCode: '',
-      legalTerms: '',
-      newsletter: ''
+      legals: false,
+      newsletter: false,
+      alert: {
+        message: '',
+        color: ''
+      }
     }
   },
   methods: {
     async signup () {
       try {
-        const response = await v1.post('/signup', {
+        await v1.post('/signup', {
           firstname: this.firstname,
           lastname: this.lastname,
           email: this.email,
@@ -307,16 +315,21 @@ export default {
           },
           birthday: new Date(this.birthday),
           gender: this.gender,
-          employee: this.employeeCode
+          employee: this.employeeCode,
+          newsletter: this.newsletter || false,
+          legals: this.legals || false
         })
-        console.log(response.data)
         this.$emit('signup', true)
-        console.log('Registrazione effettuata')
       } catch (e) {
-        console.log(e)
-        console.log('La registrazione non è andato a buon fine.')
+        this.alert = {
+          message: e.response.data.message,
+          color: 'alert--red'
+        }
       }
     }
+  },
+  components: {
+    appAlert: Alert
   }
 }
 </script>
